@@ -17,7 +17,6 @@ export default {
 <style lang="sass">
 $font-family-main: Avenir, Helvetica, Arial, sans-serif
 $font-size-main: 16px
-$color-font: #2c3e50
 
 *
 	box-sizing: border-box
@@ -30,8 +29,9 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
-
   a
     text-decoration: none
     outline: none
+  h1
+    text-transform: uppercase
 </style>

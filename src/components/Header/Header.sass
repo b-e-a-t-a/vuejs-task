@@ -1,21 +1,24 @@
+@import "~theme/common-styles"
+
 .Header
-  background-color: dodgerblue
-  padding: 4rem 3rem 3rem 1rem
+  background-color: $color-header
+  height: 10rem
+  padding: 4rem 2rem 2rem 1rem
   display: flex
   justify-content: space-between
   align-items: flex-start
   &__title
     text-transform: uppercase
-    border: 1px solid white
     padding: 1rem 14rem
     margin-right: 4rem
   &__link
-    border: 1px solid white
     padding: .4rem 7rem
   a
-    background-color: mediumaquamarine
+    border: 1px solid $color-black
+    background-color: $color-secondary
     font-weight: bold
-    color: white
-    &.router-link-exact-active
-      background-color: paleturquoise
-      color: dodgerblue
+    color: $color-black
+    &:hover, &.router-link-exact-active
+      border: 1px solid $color-font-active
+      background-color: $color-active
+      color: $color-font-active
