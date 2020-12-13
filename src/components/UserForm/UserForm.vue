@@ -21,7 +21,7 @@
         <span v-if="!user.name" id="userName" class="form-text">
           Can contain only letters
         </span>
-        <span v-else class="error-box">
+        <span v-if="user.name && !isTextFieldValid(user.name)" class="error-box">
           Invalid character!
         </span>
       </div>
@@ -48,7 +48,7 @@
         <span v-if="!user.surname" id="userSurname" class="form-text">
           Can contain only letters
         </span>
-        <span v-else class="error-box">
+        <span v-if="user.surname && !isTextFieldValid(user.surname)" class="error-box">
           Invalid character!
         </span>
       </div>
@@ -62,7 +62,7 @@
         <input
           v-model="user.age"
           name="age"
-          type="number"
+          type="text"
           id="userAge"
           placeholder="Your age"
           class="form-control"
@@ -75,14 +75,14 @@
         <span v-if="!user.age" id="userAge" class="form-text">
           Can contain only digits
         </span>
-        <span v-else class="error-box">
+        <span v-if="user.age && !isAgeFieldValid(user.age)" class="error-box">
           Invalid character!
         </span>
       </div>
     </div>
 
     <transition name="UserForm__fade">
-      <div v-if="isFormValid" class="common-box w-100 mb-4">
+      <div v-if="isNameAndSurnameValid" class="common-box w-100 mb-4">
         Hello {{user.name}} {{user.surname}} !
       </div>
     </transition>
@@ -115,8 +115,15 @@ export default {
       return Boolean(
         this.user.name &&
         this.user.surname &&
-        this.user.age
+        this.user.age &&
+        this.isNameAndSurnameValid &&
+        this.isAgeFieldValid(this.user.age)
       )
+    },
+    isNameAndSurnameValid() {
+      const validName = this.isTextFieldValid(this.user.name);
+      const validSurname = this.isTextFieldValid(this.user.surname);
+      return validName && validSurname;
     }
   },
   methods: {
@@ -126,6 +133,13 @@ export default {
       this.state = "submitted";
       this.user = {};
       this.$router.push("/user")
+    },
+    isTextFieldValid(text) {
+      var re = /^[A-Za-z]+$/;
+      return text && re.test(text);
+    },
+    isAgeFieldValid(age) {
+      return Number(age) && age > 0 && age <= 150;
     }
   }
 }
