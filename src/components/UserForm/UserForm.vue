@@ -92,14 +92,20 @@
       class="btn btn-success w-25"
       :disabled="!isFormValid"
     >
-      Save
+      <span v-if="state === 'loading'">
+        <Loader />
+      </span>
+      <span v-else>Save</span>
     </button>
   </form>
 </template>
 
 <script>
+import Loader from "@/components/Loader/Loader.vue";
+
 export default {
   name: "UserForm",
+  components: { Loader },
   data() {
     return {
       user: {
@@ -129,10 +135,15 @@ export default {
   methods: {
     submitForm() {
       const dto = this.user;
+      const parsedUser = JSON.stringify(this.user);
       console.log('dto', dto)
-      this.state = "submitted";
-      this.user = {};
-      this.$router.push("/user")
+      this.state = "loading";
+      sessionStorage.setItem("user", parsedUser);
+      // localStorage.setItem("user", parsedUser);
+      setTimeout(() => {
+        this.$router.push("/user");
+        this.state = "submitted";
+      }, 1000);
     },
     isTextFieldValid(text) {
       var re = /^[A-Za-z]+$/;
