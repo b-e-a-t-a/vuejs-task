@@ -2,19 +2,13 @@
 
 .Header
   background-color: $color-header
+  padding: 2rem
   height: 10rem
-  padding: 4rem 2rem 2rem 1rem
-  display: flex
-  justify-content: space-between
-  align-items: flex-start
-  &__title
-    text-transform: uppercase
-    padding: 1rem 14rem
-    margin-right: 4rem
-  &__link
-    padding: .4rem 7rem
+  &.menuVisible
+    height: auto
+  &__navbarList
+    margin-top: 2rem
   a
-    border: 1px solid $color-black
     background-color: $color-secondary
     font-weight: bold
     color: $color-black
@@ -22,3 +16,14 @@
       border: 1px solid $color-font-active
       background-color: $color-active
       color: $color-font-active
+  &__link
+    min-width: 20vw
+    max-width: 50%
+    border: 1px solid $color-black
+  &__title
+    text-transform: uppercase
+    min-width: 40vw
+    border: 1px solid $color-black
+    a
+      padding-top: 1rem
+      padding-bottom: 1rem

@@ -1,7 +1,9 @@
 <template>
   <div class="Page centered">
-    <div class="Page__welcome">
-      <h1>Welcome to Vue SPA!</h1>
+    <div class="container">
+      <div class="Page__welcome">
+        <h1>Welcome to Vue SPA!</h1>
+      </div>
     </div>
   </div>
 </template>

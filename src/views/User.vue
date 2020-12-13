@@ -10,7 +10,7 @@
         <button class="btn btn-success w-25" @click="showInfo">ACCESS</button>
         <div v-if="isInfoShown" class="Page__main">
           <div v-if="Number(user.age) < 18" class="error-box w-25">
-            You should be ate least 18 years old!
+            You should be at least 18 years old!
           </div>
           <div v-else class="Page__photo">
             <img src="https://source.unsplash.com/p2ifKHu3dXM" alt="welcome picture" />
