@@ -1,1 +1,44 @@
 @import "common-colors"
+
+.container
+  width: 100%
+  max-width: 1200px
+  margin: 0 auto
+
+.row::before, .row::after
+  content: ""
+  display: table
+
+.row::after
+  clear: both
+
+h1, h2, h3
+  margin: .5rem 0
+
+.common-box
+  padding: 1rem 0
+  border: 2px solid $color-white
+  border-radius: 5px
+  background-color: $color-primary
+  color: $color-white
+  text-align: center
+  width: 33%
+
+.label-box
+  padding: .5rem 0
+  border: 2px solid $color-white
+  border-radius: 5px
+  background-color: $color-primary
+  color: $color-white
+  text-align: center
+  min-width: 15rem
+  margin-right: 5rem
+
+.error-box
+  padding: .3rem 0
+  border: 2px solid $color-white
+  border-radius: 5px
+  background-color: $color-error
+  color: $color-white
+  text-align: center
+  min-width: 15rem

@@ -1,5 +1,5 @@
 <template>
-  <div class="Page">
+  <div class="Page centered">
     <div class="Page__welcome">
       <h1>Welcome to Vue SPA!</h1>
     </div>
