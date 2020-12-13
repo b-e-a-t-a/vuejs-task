@@ -13,7 +13,6 @@
     font-weight: bold
     color: $color-black
     &:hover, &.router-link-exact-active
-      border: 1px solid $color-font-active
       background-color: $color-active
       color: $color-font-active
   &__link
@@ -27,3 +26,11 @@
     a
       padding-top: 1rem
       padding-bottom: 1rem
+
+  .navbar
+    .nav-item
+      &:hover
+        .nav-link
+          color: $color-white
+      .router-link-exact-active
+        color: $color-white
