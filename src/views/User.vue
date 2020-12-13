@@ -7,12 +7,13 @@
         </div>
       </header>
       <section>
-        <button class="btn btn-success w-25">ACCESS</button>
-        <div class="Page__main">
-          <div v-if="user.age < 18" class="error-box w-25">
+        <button class="btn btn-success w-25" @click="showInfo">ACCESS</button>
+        <div v-if="isInfoShown" class="Page__main">
+          <div v-if="Number(user.age) < 18" class="error-box w-25">
             You should be ate least 18 years old!
           </div>
           <div v-else class="Page__photo">
+            <img src="https://source.unsplash.com/p2ifKHu3dXM" alt="welcome picture" />
           </div>
         </div>
       </section>
@@ -25,12 +26,18 @@ export default {
   name: "User",
   data() {
     return {
-      user: {}
+      user: {},
+      isInfoShown: false
     }
   },
   mounted() {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(sessionStorage.getItem('user'));
     this.user = user;
+  },
+  methods: {
+    showInfo() {
+      this.isInfoShown = true;
+    }
   }
 };
 </script>
