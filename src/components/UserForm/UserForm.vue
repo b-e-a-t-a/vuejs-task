@@ -80,13 +80,12 @@
         </span>
       </div>
     </div>
-
     <transition name="UserForm__fade">
-      <div v-if="isNameAndSurnameValid" class="common-box w-100 mb-4">
-        Hello {{user.name}} {{user.surname}} !
-      </div>
+      <UserHello
+        v-if="isNameAndSurnameValid"
+        :user="user"
+      />
     </transition>
-
     <button
       type="submit"
       class="btn btn-success w-25"
@@ -102,10 +101,11 @@
 
 <script>
 import Loader from "@/components/Loader/Loader.vue";
+import UserHello from "./UserHello.vue";
 
 export default {
   name: "UserForm",
-  components: { Loader },
+  components: { Loader, UserHello },
   data() {
     return {
       user: {
