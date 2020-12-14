@@ -1,5 +1,8 @@
 # eversis-task
 
+Project published at: https://b-e-a-t-a.github.io/vuejs-task/
+
+
 ## Project setup
 ```
 npm install
