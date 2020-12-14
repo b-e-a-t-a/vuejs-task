@@ -9,7 +9,7 @@
   &__navbarList
     margin-top: 2rem
   a
-    background-color: $color-secondary
+    background-color: rgba($color-secondary, .7)
     font-weight: bold
     color: $color-black
     &:hover, &.router-link-exact-active
@@ -18,11 +18,9 @@
   &__link
     min-width: 20vw
     max-width: 50%
-    border: 1px solid $color-black
   &__title
     text-transform: uppercase
     min-width: 40vw
-    border: 1px solid $color-black
     a
       padding-top: 1rem
       padding-bottom: 1rem
@@ -31,6 +29,8 @@
     .nav-item
       &:hover
         .nav-link
-          color: $color-white
+          color: $color-font-active
       .router-link-exact-active
-        color: $color-white
+        color: $color-font-active
+  .nav-link
+    color: $color-black

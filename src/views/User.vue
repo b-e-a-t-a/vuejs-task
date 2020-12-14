@@ -2,12 +2,15 @@
   <div class="Page">
     <div class="container">
       <header class="Page__header">
-        <div class="common-box w-100">
-          {{ user.name }} {{user.surname}}'s Page
+        <div  class="common-box w-100">
+          <span v-if="userInfoAvailable">{{ user.name }} {{ user.surname }}'s Page</span>
+          <span v-else>No user info</span>
         </div>
       </header>
       <section>
-        <button class="btn btn-success w-25" @click="showInfo">ACCESS</button>
+        <button class="btn btn-success w-25" :disabled="!userInfoAvailable" @click="showInfo">
+          ACCESS
+        </button>
         <div v-if="isInfoShown" class="Page__main">
           <div v-if="Number(user.age) < 18" class="error-box w-25">
             You should be at least 18 years old!
@@ -33,6 +36,11 @@ export default {
   mounted() {
     const user = JSON.parse(sessionStorage.getItem('user'));
     this.user = user;
+  },
+  computed: {
+    userInfoAvailable() {
+      return Boolean(this.user && this.user.name && this.user.surname)
+    }
   },
   methods: {
     showInfo() {

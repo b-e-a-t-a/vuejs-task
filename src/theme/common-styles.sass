@@ -16,29 +16,38 @@ h1, h2, h3
   margin: .5rem 0
 
 .common-box
+  width: 33%
   padding: 1rem 0
   border: 2px solid $color-white
   border-radius: 5px
   background-color: $color-primary
   color: $color-white
   text-align: center
-  width: 33%
 
 .label-box
+  min-width: 15rem
+  margin-right: 5rem
   padding: .5rem 0
   border: 2px solid $color-white
   border-radius: 5px
   background-color: $color-primary
   color: $color-white
   text-align: center
-  min-width: 15rem
-  margin-right: 5rem
 
 .error-box
-  padding: .3rem 0
-  border: 2px solid $color-white
-  border-radius: 5px
-  background-color: $color-error
-  color: $color-white
-  text-align: center
   min-width: 15rem
+  padding: .3rem 0
+  border: 2px solid $color-error
+  border-radius: 5px
+  background-color: transparent
+  color: $color-error
+  text-align: center
+  font-weight: bold
+
+.btn-success
+  background-color: $color-success
+  color: $color-success-border
+  border: 2px solid $color-success-border
+  &:hover
+    background-color: $color-success-border
+    color: $color-white
