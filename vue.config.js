@@ -10,5 +10,5 @@ module.exports = {
       modules: [path.resolve("./src"), "node_modules"]
     }
   },
-  publicPath: process.env.NODE_ENV === "production" ? "/eversis/" : "/"
+  publicPath: process.env.NODE_ENV === "production" ? "/vuejs-task/" : "/"
 };
