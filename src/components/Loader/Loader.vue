@@ -1,10 +1,6 @@
 <template>
   <transition name="Loader__fade">
-    <clip-loader
-      class="Loader"
-      :color="color"
-      :size="size"
-    />
+    <clip-loader class="Loader" :color="color" :size="size" />
   </transition>
 </template>
 
@@ -20,9 +16,9 @@ export default {
     return {
       color: "#fff",
       size: "23px"
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="sass">

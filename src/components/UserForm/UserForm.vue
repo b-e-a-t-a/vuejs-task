@@ -21,7 +21,10 @@
         <span v-if="!user.name" id="userName" class="form-text">
           Can contain only letters
         </span>
-        <span v-if="user.name && !isTextFieldValid(user.name)" class="error-box">
+        <span
+          v-if="user.name && !isTextFieldValid(user.name)"
+          class="error-box"
+        >
           Invalid character!
         </span>
       </div>
@@ -48,7 +51,10 @@
         <span v-if="!user.surname" id="userSurname" class="form-text">
           Can contain only letters
         </span>
-        <span v-if="user.surname && !isTextFieldValid(user.surname)" class="error-box">
+        <span
+          v-if="user.surname && !isTextFieldValid(user.surname)"
+          class="error-box"
+        >
           Invalid character!
         </span>
       </div>
@@ -81,16 +87,9 @@
       </div>
     </div>
     <transition name="UserForm__fade">
-      <UserHello
-        v-if="isNameAndSurnameValid"
-        :user="user"
-      />
+      <UserHello v-if="isNameAndSurnameValid" :user="user" />
     </transition>
-    <button
-      type="submit"
-      class="btn btn-success w-25"
-      :disabled="!isFormValid"
-    >
+    <button type="submit" class="btn btn-success w-25" :disabled="!isFormValid">
       <span v-if="state === 'loading'">
         <Loader />
       </span>
@@ -114,17 +113,17 @@ export default {
         age: null
       },
       state: null
-    }
+    };
   },
   computed: {
     isFormValid() {
       return Boolean(
         this.user.name &&
-        this.user.surname &&
-        this.user.age &&
-        this.isNameAndSurnameValid &&
-        this.isAgeFieldValid(this.user.age)
-      )
+          this.user.surname &&
+          this.user.age &&
+          this.isNameAndSurnameValid &&
+          this.isAgeFieldValid(this.user.age)
+      );
     },
     isNameAndSurnameValid() {
       const validName = this.isTextFieldValid(this.user.name);
@@ -134,12 +133,9 @@ export default {
   },
   methods: {
     submitForm() {
-      const dto = this.user;
       const parsedUser = JSON.stringify(this.user);
-      console.log('dto', dto)
       this.state = "loading";
       sessionStorage.setItem("user", parsedUser);
-      // localStorage.setItem("user", parsedUser);
       setTimeout(() => {
         this.$router.push("/user");
         this.state = "submitted";
@@ -153,7 +149,7 @@ export default {
       return Number(age) && age > 0 && age <= 150;
     }
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div class="Header" :class="{ 'menuVisible': isMenuVisible }">
+  <div class="Header" :class="{ menuVisible: isMenuVisible }">
     <nav class="navbar navbar-expand-lg navbar-light Header__navbar">
       <div class="container-fluid">
         <button
@@ -18,7 +18,7 @@
         <div
           id="navbarNav"
           class="collapse navbar-collapse Header__navbarList d-flex-lg align-items-start"
-          :class="{ 'show': isMenuVisible }"
+          :class="{ show: isMenuVisible }"
         >
           <div class="me-auto mb-2 mb-lg-0 Header__title">
             <router-link to="/" class="nav-link">Title</router-link>
@@ -38,19 +38,19 @@
 </template>
 
 <script>
-  export default {
-    name: "Header",
-    data() {
-      return {
-        isMenuVisible: true
-      }
-    },
-    methods: {
-      toggleNavbar() {
-        this.isMenuVisible = !this.isMenuVisible;
-      }
+export default {
+  name: "Header",
+  data() {
+    return {
+      isMenuVisible: true
+    };
+  },
+  methods: {
+    toggleNavbar() {
+      this.isMenuVisible = !this.isMenuVisible;
     }
   }
+};
 </script>
 
 <style lang="sass" scoped>
